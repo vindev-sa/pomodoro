@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aplicativo Pomodoro</title>
+  <link rel="stylesheet" type="text/css" href="public/style.css">
+  <script src="public/script.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <h1 class="app-title">Pomodoro</h1>
+      </header>
+
+      <div class="timer-area">
+        <div class="circle-wrap" aria-hidden>
+          <div id="circle" class="circle">
+            <div class="circle-inner">
+              <div id="time" class="time">25:00</div>
+              <div id="mode" class="mode">Atividade</div>
+            </div>
+          </div>
+        </div>
+
+        <input id="activityTitle" class="activity-title" placeholder="Nome da atividade"/>
+
+        <div class="controls">
+          <button id="playPause" class="primary"><img src="public/assets/play.svg" alt="" srcset=""></button>
+          <button id="skip">Pular</button>
+          <button id="reset">Redefinir</button>
+        </div>
+
+        <div class="duration-inputs">
+          <div>
+            <label>Trabalho (min)</label><br>
+            <input type="number" id="workInput" value="25" min="1" max="120">
+          </div>
+          <div>
+            <label>Pausa (min)</label><br>
+            <input type="number" id="breakInput" value="5" min="1" max="60">
+          </div>
+        </div>
+
+        <div class="actions">
+          <div class="info">Concluídas: <span id="completedCount">0</span></div>
+          <div class="row">
+            <button id="viewLog">Ver registro</button>
+            <button id="downloadCSV">Baixar CSV</button>
+            <button id="uploadCSV">Carregar CSV</button>
+            <button id="clearLog">Limpar registro</button>
+          </div>
+        </div>
+
+        <input type="file" id="csvFileInput" accept=".csv" style="display:none" />
+
+        <div id="log" class="log" hidden></div>
+
+        <canvas id="activityChart"></canvas>
+
+      </div>
+
+      <footer>Salvo no localStorage. Notificações, alertas sonoros, exportação/importação CSV e gráfico incluídos.</footer>
+    </div>
+  </div>
+
+  <audio id="sound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+</body>
+</html>
