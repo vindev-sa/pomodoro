@@ -53,11 +53,16 @@ const formatTime = (s) => `${pad(Math.floor(s / 60))}:${pad(s % 60)}`;
 function updateUI() {
   timeEl.textContent = formatTime(remaining);
   modeEl.textContent = mode === 'work' ? 'Work' : mode === 'longBreak' ? 'Pausa Longa' : 'Pausa';
-  playPauseBtn.textContent = running
-    ? 'Pause'
+  playPauseBtn.src = running
+  ? 'public/assets/timer_pause.svg'
+  : remaining === (mode === 'work' ? WORK_SECONDS : mode === 'longBreak' ? LONG_BREAK_SECONDS : BREAK_SECONDS)
+  ? 'public/assets/timer_play.svg'
+  : 'public/assets/timer_pause.svg';
+  /* playPauseBtn.textContent = running
+    ? 'timer_pause'
     : remaining === (mode === 'work' ? WORK_SECONDS : mode === 'longBreak' ? LONG_BREAK_SECONDS : BREAK_SECONDS)
-    ? 'Iniciar'
-    : 'Resumir';
+    ? 'timer_play'
+    : 'timer_pause'; */
   completedCountEl.textContent = completedCount;
 
   const total = mode === 'work' ? WORK_SECONDS : mode === 'longBreak' ? LONG_BREAK_SECONDS : BREAK_SECONDS;

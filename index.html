@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="public/style.css">
   <script src="public/script.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=timer_play&timer_pause" />
 </head>
 <body>
   <div class="wrap">
@@ -28,7 +29,7 @@
         <input id="activityTitle" class="activity-title" placeholder="Nome da atividade"/>
 
         <div class="controls">
-          <button id="playPause" class="primary"><img src="public/assets/play.svg" alt="" srcset=""></button>
+          <button id="playPause" class="primary material-symbols-outlined">timer_play</button>
           <button id="skip">Pular</button>
           <button id="reset">Redefinir</button>
         </div>
@@ -56,7 +57,7 @@
 
         <input type="file" id="csvFileInput" accept=".csv" style="display:none" />
 
-        <div id="log" class="log" hidden></div>
+        <div popover id="log" class="log" hidden></div>
 
         <canvas id="activityChart"></canvas>
 
