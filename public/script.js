@@ -17,7 +17,7 @@ const resetBtn = document.getElementById('reset');
 const skipBtn = document.getElementById('skip');
 const circleEl = document.getElementById('circle');
 const completedCountEl = document.getElementById('completedCount');
-const viewLogBtn = document.getElementById('viewLog');
+// const viewLogBtn = document.getElementById('viewLog');
 const clearLogBtn = document.getElementById('clearLog');
 const logEl = document.getElementById('log');
 const soundEl = document.getElementById('sound');
@@ -97,6 +97,7 @@ function clearActivities() {
 }
 
 function renderLog() {
+  debugger;
   const activities = loadActivities();
   if (!activities.length) {
     logEl.innerHTML = '<div style="padding:8px;color:var(--muted)">Ainda não há atividades</div>';
@@ -108,7 +109,7 @@ function renderLog() {
       (a, i) =>
         `<div class="item"><div><strong>${a.title || a.type}</strong><br><small>${new Date(
           a.when
-        ).toLocaleString()}</small></div><div style="text-align:right"><div>${a.durationStr}</div><button class='edit-btn' onclick='editActivity(${i})'>Editar</button></div></div>`
+        ).toLocaleDateString()}</small></div><div style="text-align:right"><div>${a.durationStr}</div><button class='edit-btn' onclick='editActivity(${i})'>Editar</button></div></div>`
     )
     .join('');
 }
@@ -206,11 +207,13 @@ skipBtn.onclick = () => {
   updateUI();
 };
 
+/*
 viewLogBtn.onclick = () => {
   logEl.hidden = !logEl.hidden;
   viewLogBtn.textContent = logEl.hidden ? 'Ver registro' : 'Esconder Registro';
   if (!logEl.hidden) renderLog();
 };
+*/
 clearLogBtn.onclick = () => {
   if (confirm('Deseja apagar todos os registros?')) clearActivities();
 };

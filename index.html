@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Aplicativo Pomodoro</title>
-  <link rel="stylesheet" type="text/css" href="public/style.css">
-  <script src="public/script.js" defer></script>
+  <link rel="stylesheet" type="text/css" href="/style">
+  <script src="/script" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=timer_play&timer_pause" />
 </head>
 <body>
   <div class="wrap">
-    <div class="card">
+    <div class="card card-style">
       <header>
         <h1 class="app-title">Pomodoro</h1>
       </header>
@@ -48,7 +48,7 @@
         <div class="actions">
           <div class="info">Concluídas: <span id="completedCount">0</span></div>
           <div class="row">
-            <button id="viewLog">Ver registro</button>
+            <button popovertarget="popoverLog" id="viewLog">Ver registro</button>
             <button id="downloadCSV">Baixar CSV</button>
             <button id="uploadCSV">Carregar CSV</button>
             <button id="clearLog">Limpar registro</button>
@@ -56,8 +56,19 @@
         </div>
 
         <input type="file" id="csvFileInput" accept=".csv" style="display:none" />
-
-        <div popover id="log" class="log" hidden></div>
+       
+        <div popover="manual" id="popoverLog" class="popover-log card-style">
+          <div class="popover-header">
+            <span class="popover-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-activity" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M6 2a.5.5 0 0 1 .47.33L10 12.036l1.53-4.208A.5.5 0 0 1 12 7.5h3.5a.5.5 0 0 1 0 1h-3.15l-1.88 5.17a.5.5 0 0 1-.94 0L6 3.964 4.47 8.171A.5.5 0 0 1 4 8.5H.5a.5.5 0 0 1 0-1h3.15l1.88-5.17A.5.5 0 0 1 6 2"/>
+</svg>
+            </span>
+            <span class="popover-title">Registros de atividades</span>
+            <button popovertarget="popoverLog" id="closePopover" class="close-popover-btn">&times;</button>
+          </div>
+          <div id="log" class="log"></div>
+        </div>
 
         <canvas id="activityChart"></canvas>
 
@@ -68,5 +79,7 @@
   </div>
 
   <audio id="sound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg" preload="auto"></audio>
+
+  <div popover>hello</div>
 </body>
 </html>
