@@ -52,6 +52,7 @@ const formatTime = (s) => `${pad(Math.floor(s / 60))}:${pad(s % 60)}`;
 
 function updateUI() {
   timeEl.textContent = formatTime(remaining);
+  document.title = `${formatTime(remaining)} - Tempo restante`;
   modeEl.textContent = mode === 'work' ? 'Work' : mode === 'longBreak' ? 'Pausa Longa' : 'Pausa';
   playPauseBtn.src = running
   ? 'public/assets/timer_pause.svg'
