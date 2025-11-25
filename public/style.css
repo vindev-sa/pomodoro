@@ -110,21 +110,12 @@ h1 {
 }
 
 .activity-title {
-    width: 90%;
-    padding: 10px;
-    /* border-radius: 50px;
-    border: none;*/
-    text-align: center; 
+    text-align: center;
     background-color: transparent;
-    border-bottom: 1px solid #fff;
     color: #fff;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    &:focus {
-        outline: none;
-        border-bottom: 1px solid var(--accent);
-    }
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
 }
 
 .controls {
